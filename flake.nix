@@ -33,15 +33,28 @@
         ];
       };
     };
-
+    
     homeConfigurations = {
       daril-personal = home-manager.lib.homeManagerConfiguration {
-        name = "daril";
-        configuration = ./home/personal.nix;
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+        modules = [
+          ./home/personal.nix
+        ];
+        extraSpecialArgs = { username = "daril"; };
       };
+
       daril-work = home-manager.lib.homeManagerConfiguration {
-        name = "daril";
-        configuration = ./home/work.nix;
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+        modules = [
+          ./home/work.nix
+        ];
+        extraSpecialArgs = { username = "daril"; };
       };
     };
   };
