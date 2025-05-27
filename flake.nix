@@ -15,9 +15,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.daril = {
-              imports = [ ./home/personal.nix ];
-            };
+            home-manager.users.daril = ./home/personal.nix;
           }
         ];
       };
