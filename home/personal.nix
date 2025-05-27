@@ -16,15 +16,6 @@ in {
     cowsay
   ];
 
-  programs.home-manager.enable = true;
-  
-  programs.zsh = {
-    enable = true;
-    sessionVariables = {
-      HOMENAME2 = homename;
-    };
-  };
-  
   programs.git = {
     enable = true;
     userName = "Daril Rodriguez";
