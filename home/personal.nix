@@ -17,10 +17,9 @@ in {
   ];
 
   programs.zsh = {
-    enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
-    initExtra = ''
+    initContent = ''
       echo "Workspace $HOMENAME"
     '';
   };
