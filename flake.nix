@@ -7,17 +7,31 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }: {
-    homeConfigurations = {
-      daril-work = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
+    nixConfigurations = {
+      daril-personal = nixpks.lib.nixosSystem {
+        system = "x86_64-linux";
         modules = [
-          ./home/work.nix
+          ./system/configuration.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.daril = {
+              imports = [ ./home/personal.nix ];
+            };
+          }
         ];
       };
-      daril-personal = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
+      daril-work = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
         modules = [
-          ./home/personal.nix
+          ./system/configuration.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.daril = {
+              imports = [ ./home/work.nix ];
+            };
+          }
         ];
       };
     };
