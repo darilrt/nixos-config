@@ -33,5 +33,16 @@
         ];
       };
     };
+
+    homeConfigurations = {
+      daril-personal = home-manager.lib.homeManagerConfiguration {
+        name = "daril";
+        configuration = ./home/personal.nix;
+      };
+      daril-work = home-manager.lib.homeManagerConfiguration {
+        name = "daril";
+        configuration = ./home/work.nix;
+      };
+    };
   };
 }
