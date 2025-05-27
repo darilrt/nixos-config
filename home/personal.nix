@@ -6,15 +6,21 @@ in {
   home.stateVersion = "24.05";
   home.username = username;
   home.homeDirectory = "/home/${username}";
-  home.sessionVariables = {
-    HOMENAME = homename;
-  };
 
   home.packages = with pkgs; [
-    cowsay vim
+    home-manager
+    vim 
+    cowsay
   ];
 
   programs.home-manager.enable = true;
+  
+  programs.zsh = {
+    enable = true;
+    sessionVariables = {
+      HOMENAME = homename;
+    };
+  };
   
   programs.git = {
     enable = true;
