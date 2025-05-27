@@ -19,6 +19,9 @@ in {
   programs.zsh = {
     enableCompletion = true;
     syntaxHighlighting.enable = true;
+    sessionVariables = {
+      HOMENAME = homename;
+    };
     initContent = ''
       echo "Workspace $HOMENAME"
     '';
