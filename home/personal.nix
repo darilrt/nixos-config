@@ -20,7 +20,7 @@ in {
     enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
-    autoSuggestions.enable = true;
+    autosuggestions.enable = true;
     package = pkgs.zsh;
   };
 
