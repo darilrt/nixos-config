@@ -31,11 +31,6 @@
     initrd.verbose = false; # Disable verbose initrd messages
   };
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
-  boot.loader.grub.timeout = 0; # Timeout for the GRUB menu.
-
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
