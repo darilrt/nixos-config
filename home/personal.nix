@@ -1,12 +1,13 @@
 { pkgs, lib, ... }:
 let
-  workspace = "Personal";
+  homename = "Personal";
   username = "daril";
 in {
+  home.stateVersion = "24.05";
   home.username = username;
-  home.homeDirectory = lib.mkDefault "/home/${username}/personal";
+  home.homeDirectory = "/home/${username}";
   home.sessionVariables = {
-    WORKSPACE = workspace;
+    HOMENAME = homename;
   };
 
   home.packages = with pkgs; [
@@ -21,6 +22,4 @@ in {
     userEmail = "darilrodriguez.2@gmail.com";
     package = pkgs.git;
   };
-
-  home.stateVersion = "24.05";
 }
