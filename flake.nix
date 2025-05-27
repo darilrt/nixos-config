@@ -15,8 +15,8 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.daril = {
-              shell = nixpkgs.zsh;
+            home-manager.users.daril = { pkgs, ... }: {
+              shell = pkgs.zsh;
               imports = [ ./home/personal.nix ];
             };
           }
