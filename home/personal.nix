@@ -21,7 +21,7 @@ in {
       HOMENAME = homename;
     };
     enable = true;
-  }
+  };
 
   programs.git = {
     enable = true;
