@@ -16,13 +16,13 @@ in {
     cowsay
   ];
 
-  # programs.zsh = {
-  #  enable = true;
+  programs.zsh = {
+    enable = true;
   #  enableCompletion = true;
   #  syntaxHighlighting.enable = true;
   #  enableAutosuggestions = true;
-  #  package = pkgs.zsh;
-  # };
+    package = pkgs.zsh;
+  };
 
   programs.git = {
     enable = true;
