@@ -11,6 +11,26 @@
     ];
 
   # Bootloader.
+  boot = {
+    # Use GRUB as the bootloader.
+    loader.grub = {
+      enable = true;
+      version = 2;
+      device = "/dev/sda";
+      useOSProber = true;
+      timeout = 0; # Timeout for the GRUB menu
+      silent = true; # Enable silent boot
+    };
+
+    # Enable silent boot.
+    kernelParams = [
+      "quiet" # Reduce kernel messages during boot
+      "splash" # Enable splash screen
+    ];
+    consoleLogLevel = 0; # Set console log level to 0 (quiet)
+    initrd.verbose = false; # Disable verbose initrd messages
+  };
+
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
