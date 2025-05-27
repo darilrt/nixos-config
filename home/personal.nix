@@ -16,6 +16,13 @@ in {
     cowsay
   ];
 
+  programs.zsh = {
+    sessionVariables = {
+      HOMENAME = homename;
+    };
+    enable = true;
+  }
+
   programs.git = {
     enable = true;
     userName = "Daril Rodriguez";
