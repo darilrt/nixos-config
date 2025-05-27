@@ -67,7 +67,7 @@
     layout = "us";
     variant = "intl";
   };
-
+  
   # Define the default user shell.
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;

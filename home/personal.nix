@@ -17,10 +17,16 @@ in {
   ];
 
   programs.zsh = {
-    sessionVariables = {
-      HOMENAME = homename;
-    };
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+    initExtra = ''
+      echo "Workspace $HOMENAME"
+    '';
   };
+
+  home.shell = pkgs.zsh;
 
   programs.git = {
     enable = true;
