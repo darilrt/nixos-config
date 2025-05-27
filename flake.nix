@@ -7,7 +7,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }: {
-    nixConfigurations = {
+    nixosConfigurations = {
       daril-personal = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
