@@ -20,12 +20,15 @@
   boot =
   {
     # Boot Loader
-    loader.grub = {
-      enable = true;
-      version = 2;
-      device = "/dev/sda";
-      useOSProber = true;
-      timeout = 0; # Timeout for the GRUB menu
+    loader = {
+      grub = {
+        enable = true;
+        version = 2;
+        device = "/dev/sda";
+        useOSProber = true;
+      };
+      
+      timeout = 0; # Timeout for the menu
     };
   };
 
