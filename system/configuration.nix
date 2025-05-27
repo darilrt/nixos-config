@@ -15,7 +15,7 @@
   {
     font = "ter-132n";
     packages = with pkgs; [ terminus_font ];
-    keyMap = "us";
+    keyMap = "us-acentos";
   };
 
   # TTY
@@ -85,9 +85,6 @@
     layout = "us";
     variant = "intl";
   };
-
-  # Configure console keymap
-  console.keyMap = "us-acentos";
 
   # Define the default user shell.
   programs.zsh.enable = true;
