@@ -26,8 +26,6 @@ in {
     '';
   };
 
-  home.shell = pkgs.zsh;
-
   programs.git = {
     enable = true;
     userName = "Daril Rodriguez";
