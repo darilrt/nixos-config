@@ -68,16 +68,13 @@
     variant = "intl";
   };
   
-  # Define the default user shell.
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.daril = {
     isNormalUser = true;
     description = "Daril Rodriguez";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+    shell = pkgs.zsh;
   };
 
   # Enable automatic login for the user.
@@ -91,6 +88,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    zsh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
