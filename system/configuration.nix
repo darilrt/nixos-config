@@ -56,8 +56,9 @@
   console.keyMap = "us-acentos";
 
   # Define the default user shell.
+  profile.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
-  
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.daril = {
     isNormalUser = true;
