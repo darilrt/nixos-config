@@ -20,7 +20,6 @@ in {
     sessionVariables = {
       HOMENAME = homename;
     };
-    enable = true;
   };
 
   programs.git = {
