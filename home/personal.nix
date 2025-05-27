@@ -6,6 +6,9 @@ in {
   home.stateVersion = "24.05";
   home.username = username;
   home.homeDirectory = "/home/${username}";
+  home.sessionVariables = {
+    HOMENAME = homename;
+  };
 
   home.packages = with pkgs; [
     home-manager
@@ -18,7 +21,7 @@ in {
   programs.zsh = {
     enable = true;
     sessionVariables = {
-      HOMENAME = homename;
+      HOMENAME2 = homename;
     };
   };
   
