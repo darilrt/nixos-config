@@ -10,24 +10,43 @@
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
-  boot = {
-    # Use GRUB as the bootloader.
-    loader.grub = {
-      enable = true;
-      version = 2;
-      device = "/dev/sda";
-      useOSProber = true;
-      timeout = 0; # Timeout for the GRUB menu
-    };
+  # Console settings
+  console =
+  {
+    font = "ter-132n";
+    packages = with pkgs; [ terminus_font ];
+    keyMap = "us";
+  };
 
-    # Enable silent boot.
-    kernelParams = [
-      "quiet" # Reduce kernel messages during boot
-      "splash" # Enable splash screen
-    ];
-    consoleLogLevel = 0; # Set console log level to 0 (quiet)
-    initrd.verbose = false; # Disable verbose initrd messages
+  # TTY
+  fonts.fonts = with pkgs; [ meslo-lgs-nf ];
+  services.kmscon =
+  {
+    enable = true;
+    hwRender = true;
+    extraConfig =
+    ''
+      font-name=MesloLGS NF
+      font-size=14
+    '';
+  };
+
+  # Boot
+  boot =
+  {
+    # Plymouth
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    plymouth.enable = true;
+    kernelParams = [ "quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail" ];
+
+    # Boot Loader
+    loader =
+    {
+      timeout = 0;
+      efi.canTouchEfiVariables = true;
+      systemd-boot.enable = true;
+    };
   };
 
   # Use latest kernel.
