@@ -54,7 +54,6 @@
       device = "/dev/sda";
       useOSProber = true;
       timeout = 0; # Timeout for the GRUB menu
-      silent = true; # Enable silent boot
     };
   };
 
