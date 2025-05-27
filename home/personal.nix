@@ -12,9 +12,17 @@ in {
 
   home.packages = with pkgs; [
     home-manager
-    vim 
+    vim
     cowsay
   ];
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
+    enableAutosuggestions = true;
+    package = pkgs.zsh;
+  };
 
   programs.git = {
     enable = true;
