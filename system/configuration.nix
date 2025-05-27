@@ -19,6 +19,8 @@
   # Boot
   boot =
   {
+    kernelPackages = pkgs.linuxPackages_latest;
+
     # Boot Loader
     loader = {
       grub = {
@@ -30,9 +32,6 @@
       timeout = 0; # Timeout for the menu
     };
   };
-
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -87,6 +86,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  programs.zsh.enable = true;
   environment.systemPackages = with pkgs; [
     zsh
   ];
