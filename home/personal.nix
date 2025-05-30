@@ -10,7 +10,6 @@ in {
   home.username = username;
   home.homeDirectory = "/home/${username}";
   home.sessionVariables = {
-    HOMENAME = homename;
   };
 
   home.packages = with pkgs; [
