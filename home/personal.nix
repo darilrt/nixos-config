@@ -5,16 +5,11 @@ in {
   imports = [
     ./common.nix
   ];
-
-  home.stateVersion = "24.05";
+  
   home.username = username;
   home.homeDirectory = "/home/${username}";
-  home.sessionVariables = {
-  };
 
   home.packages = with pkgs; [
-    home-manager
-    vim
   ];
 
   programs.zsh = {
