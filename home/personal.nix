@@ -1,8 +1,11 @@
 { pkgs, lib, ... }:
 let
-  homename = "Personal";
   username = "daril";
 in {
+  imports = [
+    ./common.nix
+  ];
+
   home.stateVersion = "24.05";
   home.username = username;
   home.homeDirectory = "/home/${username}";
@@ -13,7 +16,6 @@ in {
   home.packages = with pkgs; [
     home-manager
     vim
-    cowsay
   ];
 
   programs.zsh = {
