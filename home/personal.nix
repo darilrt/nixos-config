@@ -4,6 +4,7 @@ let
 in {
   imports = [
     ./common.nix
+    ./hyprland.nix
   ];
   
   home.username = username;
